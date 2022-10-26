@@ -1,0 +1,1636 @@
+    /* 公共样式  */
+
+    /* 自定义属性：使用var函数可以调用  */
+    :root {
+        --public-color-1: #bababa;
+        --public-color-2: #ff6700;
+    }
+
+
+    body {
+        /*文字颜色 文字属性子级会继承*/
+        color: #3a3948;
+        /* 背景色 */
+        background-color: #fff;
+        /* 字体 */
+        font: 14px/1.5 Helvetica Neue,
+            Helvetica,
+            Arial,
+            Microsoft Yahei,
+            Hiragino Sans GB,
+            Heiti SC,
+            WenQuanYi Micro Hei,
+            sans-serif;
+    }
+
+    /* 清楚表单元素默认样式 */
+    input,
+    button {
+        border: none;
+        outline: none;
+        background-color: #fff;
+    }
+
+    /* 版心  */
+    .container {
+        width: 100%;
+        max-width: 1226px;
+        min-width: 1226px;
+        /* 上下外边距0 左右自适应实现水平居中  */
+        margin: 0 auto;
+    }
+
+    /* 左右浮动  */
+    .fL {
+        float: left;
+    }
+
+    .fR {
+        float: right;
+    }
+
+    /* 清除浮动  */
+    .clearFix::after {
+        /* 必须属性  */
+        content: "";
+        /* 转块  */
+        display: block;
+        /* 清楚左右浮动  */
+        clear: both;
+    }
+
+    /*  */
+
+    /* header start  */
+    header .head-navSmall {
+        background-color: #333;
+    }
+
+    header .head-navSmall .head-nav ul li,
+    header .head-navSmall .head-nav ul li {
+        /* 元素高度 */
+        height: 40px;
+        /* 行高 */
+        line-height: 40px;
+    }
+
+    header .head-navSmall .head-nav ul li a,
+    header .head-navSmall .head-nav ul span,
+    header .head-navSmall .head-nav div.fR ul li:last-child span {
+        /* 使用var函数调用自定义属性值 */
+        color: var(--public-color-1);
+        font-size: 12px;
+        line-height: 40px;
+    }
+
+    header .head-navSmall .head-nav ul span:nth-child(even) {
+        color: #424242;
+        margin: 0 7px;
+    }
+
+    header .head-navSmall .head-nav ul li a:hover,
+    /* header .head-navSmall .head-nav ul span.fL:hover, */
+    header .head-navSmall .head-nav ul li a[title="Sign-in"]:hover,
+    header .head-navSmall .head-nav ul li a[title="register"]:hover,
+    header .head-navSmall .head-nav ul li:nth-child(5) a:hover {
+        color: #fff;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"] {
+        position: relative;
+    }
+
+
+
+    header .head-navSmall .head-nav ul li[name="downApp"]::before {
+        /* 上箭头 */
+        content: "";
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        margin-left: -8px;
+        border: 8px solid transparent;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"]:hover::before {
+        border-bottom-color: white;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"] .downApp-container a {
+        display: block;
+        width: 100%;
+        height: 148px;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"] .downApp-container {
+        width: 124px;
+        height: 0px;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        z-index: 30;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 1px 5px #aaa;
+        overflow: hidden;
+        transition: height .3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"] .downApp-container span {
+        color: #333;
+        font-size: 14px;
+        position: relative;
+        top: -10px;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"] .downApp-container img {
+        display: block;
+        margin: 18px auto 12px;
+    }
+
+    header .head-navSmall .head-nav ul li[name="downApp"]:hover .downApp-container {
+        height: 148px;
+    }
+
+    header .head-navSmall .head-nav div.fR ul li:last-child:hover a,
+    header .head-navSmall .head-nav div.fR ul li:last-child:hover span {
+        color: #ff6700;
+    }
+
+    header .head-navSmall .head-nav div.fR ul li:last-child {
+        padding: 0 20px 0 35px;
+        background: #424242 url("../images/shopCarIcon.png") 14px center no-repeat;
+        background-size: 19px 15px;
+        margin-left: 25px;
+        /* 子绝父相 */
+        position: relative;
+    }
+
+    header .head-navSmall .head-nav div.fR ul li:last-child:hover {
+        background-color: #fff;
+        background-image: url("../images/shopCarIcon-new.png");
+    }
+
+    header .head-navSmall .head-nav ul li:last-child .shopCar-info {
+        /* 绝对定位调整位置 */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 21;
+        /* 盒模型 */
+        width: 280px;
+        height: 0px;
+        line-height: 100px;
+        background-color: #fff;
+        box-shadow: 0px 5px 10px 0px #aaaaaa50;
+        font-size: 14px;
+        text-align: center;
+        /* 溢出隐藏掉内容 */
+        overflow: hidden;
+        /* 过渡 */
+        transition: height .3s cubic-bezier(0.215, 0.610, 0.355, 1) 0s;
+    }
+
+    /* 鼠标悬浮显示 */
+    header .head-navSmall .head-nav ul li:last-child:hover .shopCar-info {
+        height: 100px;
+    }
+
+    /* 主导航和搜索框&logo */
+    header .nav-search-container {
+        height: 100px;
+        position: relative;
+        background-color: #fff;
+    }
+
+    header .nav-search-container .logo-container {
+        padding-top: 21px;
+    }
+
+    header .nav-search-container .logo-container img {
+        width: 56px;
+        height: 56px;
+    }
+
+    header .nav-search-container ul li {
+        margin-left: 20px;
+    }
+
+    header .nav-search-container ul li a[name="navTabs"] {
+        font-size: 16px;
+        line-height: 100px;
+        transition: all .3s linear 0s;
+        padding-bottom: 38px;
+        position: relative;
+        z-index: 6;
+    }
+
+    header .nav-search-container ul li div.navTabs-son {
+        width: 100%;
+        height: 0px;
+        position: absolute;
+        z-index: 20;
+        left: 0;
+        background-color: #fff;
+        overflow: hidden;
+        /* 解决方法 */
+        border-top-style: solid;
+        border-top-width: 0;
+        border-top-color: transparent;
+        /* 
+        border-top: 1px solid transparent;
+            加上上边框后会有一个小bug，在不悬浮导航时沿着透明色的上边框缓慢移动鼠标.navTabs-son元素会突然显示出来且导航选中状态总在最后一个
+        */
+        transition: height .3s linear 0s;
+    }
+
+    header .nav-search-container ul li:hover .navTabs-son {
+        height: 229px;
+        border-top-width: 1px;
+        border-top-color: #e0e0e0;
+        box-shadow: 0 3px 4px rgb(0, 0, 0, .2);
+    }
+
+    header .nav-search-container ul li:hover .navTabs-son ol li a img {
+        margin-bottom: 5px;
+    }
+
+    header .nav-search-container ul li:hover a[name="navTabs"] {
+        color: var(--public-color-2);
+    }
+
+    header .nav-search-container ul li div ol {
+        padding-top: 40px;
+        /* 开启弹性盒子 */
+        display: flex;
+        /* 均匀布局 */
+        justify-content: space-between;
+    }
+
+    header .nav-search-container ul li div ol li {
+        position: relative;
+        line-height: 16px;
+        margin-left: 0;
+        width: 204px;
+        text-align: center;
+    }
+
+    header .nav-search-container ul li div ol li::after {
+        /* 分割线 */
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        width: 1px;
+        height: 100px;
+        background-color: #e0e0e0;
+    }
+
+    header .nav-search-container ul li div ol li:last-child::after {
+        display: none;
+    }
+
+    header .nav-search-container ul li div ol li a {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    header .nav-search-container ul li div ol li a p {
+        color: var(--public-color-2);
+    }
+
+    /* 更改商品数少的横向布局，从起始位置开始 */
+    header .nav-search-container ul li div ol.flexStart {
+        justify-content: flex-start;
+    }
+
+    header .nav-search-container .search-container {
+        padding-top: 23px;
+        margin-left: 86px;
+    }
+
+    header .nav-search-container .search-container form {
+        width: 280px;
+        height: 46px;
+        border: 1px solid #e6e6e6;
+        background-color: #fff;
+        position: relative;
+    }
+
+    header .nav-search-container .search-container form:hover,
+    header .nav-search-container .search-container form:hover button {
+        border-color: var(--public-color-2);
+    }
+
+    header .nav-search-container .search-container form input {
+        width: 80%;
+        height: 100%;
+        padding-left: 10px;
+        box-sizing: border-box;
+    }
+
+    header .nav-search-container .search-container form input::placeholder {
+        font-size: 12px;
+    }
+
+    header .nav-search-container .search-container form button {
+        width: 20%;
+        height: 100%;
+        background: url("../images/search-before.png") center no-repeat;
+        background-size: 18px 18px;
+        border-left: 1px solid #e6e6e6;
+        /* 内减盒 */
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    header .nav-search-container .search-container form button:hover {
+        background-color: var(--public-color-2);
+        background-image: url("../images/search-after.png");
+    }
+
+    header .nav-search-container .search-container form .searchShopTab-col {
+        position: absolute;
+        top: 47px;
+        left: -1px;
+        width: 80%;
+        height: 0px;
+        z-index: 20;
+        overflow: hidden;
+        background-color: #fff;
+        border: 1px solid transparent;
+        border-top: none;
+    }
+
+    header .nav-search-container .search-container form .searchShopTab-col ul li {
+        font-size: 10px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: 0;
+        padding-left: 10px;
+    }
+
+    header .nav-search-container .search-container form .searchShopTab-col ul li a {
+        display: block;
+    }
+
+    header .nav-search-container .search-container form .searchShopTab-col ul li:hover {
+        background-color: #fafafa;
+    }
+
+    header .nav-search-container .search-container form:hover .searchShopTab-col {
+        border-color: var(--public-color-2);
+        height: 242px;
+    }
+
+    /* banner */
+    header .banner-container {
+        background-color: #fff;
+        position: relative;
+        margin-bottom: 14px;
+    }
+
+    header .banner-container .bannerImages {
+        width: 100%;
+        height: 460px;
+        position: relative;
+    }
+
+    /* 左右箭头因为有的样式相同，减少代码冗余使用分组写法 */
+    header .banner-container .bannerImages .bannerReturn,
+    header .banner-container .bannerImages .bannerNext {
+        content: "";
+        position: absolute;
+        width: 41px;
+        height: 69px;
+        background: url("../images/icon-slides.png");
+        z-index: 15;
+        cursor: pointer;
+    }
+
+    header .banner-container .bannerImages .bannerReturn {
+        left: 234px;
+        top: 50%;
+        margin-top: -34.5px;
+        background-position: -83px 0px;
+    }
+
+    header .banner-container .bannerImages .bannerNext {
+        right: 0;
+        top: 50%;
+        margin-top: -34.5px;
+        background-position: -125px 0px;
+    }
+
+    header .banner-container .bannerImages .bannerReturn:hover {
+        background-position: 0px 0px;
+    }
+
+    header .banner-container .bannerImages .bannerNext:hover {
+        background-position: -42px 0px;
+    }
+
+    header .banner-container .bannerImages ul li,
+    header .banner-container .bannerImages ul li img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 定义动画 */
+    @keyframes bannerShow {
+        0% {
+            opacity: 0;
+            z-index: 0;
+        }
+
+        25% {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        50% {
+            opacity: 0;
+            z-index: 0;
+        }
+    }
+
+    /* 每个banner的预延时 */
+    header .banner-container .bannerImages ul[name="pageBanner"] li:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    header .banner-container .bannerImages ul[name="pageBanner"] li:nth-child(2) {
+        animation-delay: 5s;
+    }
+
+    header .banner-container .bannerImages ul[name="pageBanner"] li:nth-child(3) {
+        animation-delay: 10s;
+    }
+
+    header .banner-container .bannerImages ul[name="pageBanner"] li:nth-child(4) {
+        animation-delay: 15s;
+    }
+
+    header .banner-container .bannerImages ul[name="pageBanner"] li {
+        position: absolute;
+        /* 透明化 */
+        opacity: 0;
+        /* 调用动画 */
+        animation-name: bannerShow;
+        animation-duration: 20s;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+        animation-iteration-count: infinite;
+    }
+
+    /* banner 小圆点 */
+    header .banner-container .bannerImages ol.circles {
+        width: 70px;
+        height: 40px;
+        position: absolute;
+        z-index: 2;
+        right: 32px;
+        bottom: 23px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* 定义动画 */
+    @keyframes circlesShow {
+        0% {
+            background-color: rgba(0, 0, 0, .4);
+            border: 2px solid rgba(255, 255, 255, .3);
+        }
+
+        25% {
+            background: hsla(0, 0%, 100%, .4);
+            border-color: rgba(0, 0, 0, .4);
+        }
+
+        50% {
+            background-color: rgba(0, 0, 0, .4);
+            border: 2px solid rgba(255, 255, 255, .3);
+        }
+    }
+
+    header .banner-container .bannerImages ol.circles li:nth-child(1) {
+        /* 动画延迟 */
+        animation-delay: 0s;
+    }
+
+    header .banner-container .bannerImages ol.circles li:nth-child(2) {
+        animation-delay: 5s;
+    }
+
+    header .banner-container .bannerImages ol.circles li:nth-child(3) {
+        animation-delay: 10s;
+    }
+
+    header .banner-container .bannerImages ol.circles li:nth-child(4) {
+        animation-delay: 15s;
+    }
+
+    header .banner-container .bannerImages ol.circles li {
+        width: 6px;
+        height: 6px;
+        background-color: rgba(0, 0, 0, .4);
+        border: 2px solid rgba(255, 255, 255, .3);
+        border-radius: 50%;
+        cursor: pointer;
+        /* 动画名称 */
+        animation-name: circlesShow;
+        /* 持续时间 */
+        animation-duration: 20s;
+        /* 循环 */
+        animation-iteration-count: infinite;
+        /* 缓冲描述 */
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+
+    header .banner-container .bannerImages ol.circles li:hover {
+        background: hsla(0, 0%, 100%, .4);
+        border-color: rgba(0, 0, 0, .4);
+    }
+
+    header .banner-container .banner-nav-tables {
+        position: absolute;
+        z-index: 16;
+        top: 0;
+        left: 0;
+        width: 234px;
+        background-color: rgba(105, 101, 101, .6);
+        height: 100%;
+    }
+
+    header .banner-container .banner-nav-tables ul[name="banner-nav"] {
+        /* 上下内边距实现子集元素上下垂直居中 */
+        padding: 20px 0;
+        height: 460px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    header .banner-container .banner-nav-tables ul li {
+        height: 42px;
+        line-height: 42px;
+    }
+
+    header .banner-container .banner-nav-tables ul>li:hover {
+        background-color: var(--public-color-2);
+    }
+
+    header .banner-container .banner-nav-tables ul li>a[name="banner-navs"] {
+        color: #fff;
+        font-size: 14px;
+        position: relative;
+        display: block;
+        padding-left: 30px;
+        box-sizing: border-box;
+    }
+
+    header .banner-container .banner-nav-tables ul li>a[name="banner-navs"]::after {
+        /* 画个小三角 */
+        content: "";
+        width: 6px;
+        height: 6px;
+        border: 2px solid #e0e0e0;
+        border-left: none;
+        border-bottom: none;
+        position: absolute;
+        right: 28px;
+        /* 上下垂直居中 */
+        top: 50%;
+        /* 2D转换 旋转 45deg(度) */
+        transform: rotate(45deg) translateY(-50%);
+
+    }
+
+    header .banner-container .banner-nav-tables ul li .navShop-tables-contianer {
+        width: 992px;
+        height: 460px;
+        background-color: #fff;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        border: 1px solid #e0e0e0;
+        box-shadow: 1px 8px 16px 0px #00000018;
+        display: none;
+    }
+
+    header .banner-container .banner-nav-tables ul li:hover .navShop-tables-contianer {
+        display: block;
+    }
+
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] {
+        width: 248px;
+        height: 100%;
+    }
+
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] li {
+        height: 76px;
+        box-sizing: border-box;
+    }
+
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] li a {
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        padding: 18px 20px;
+    }
+
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] li img {
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] li a span {
+        font-size: 14px;
+        float: left;
+        width: 158px;
+        /* 溢出隐藏 */
+        overflow: hidden;
+        /* 文本溢出显示小数点 */
+        text-overflow: ellipsis;
+        /* 不换行 */
+        white-space: nowrap;
+    }
+
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] li:hover,
+    .banner-nav-tables ul li .navShop-tables-contianer ul[name="saleShop-smallContainer"] li:hover a {
+        color: var(--public-color-2);
+        background-color: #fff;
+    }
+
+    /* 定宽 */
+    header .banner-nav-tables ul[name="banner-nav"] li:nth-child(4) .navShop-tables-contianer,
+    header .banner-nav-tables ul[name="banner-nav"] li:nth-child(5) .navShop-tables-contianer,
+    header .banner-nav-tables ul[name="banner-nav"] li:nth-child(7) .navShop-tables-contianer,
+    header .banner-nav-tables ul[name="banner-nav"] li:nth-child(9) .navShop-tables-contianer,
+    header .banner-nav-tables ul[name="banner-nav"] li:nth-child(10) .navShop-tables-contianer {
+        width: 795px;
+    }
+
+    header .banner-nav-tables ul[name="banner-nav"] li:nth-child(8) .navShop-tables-contianer {
+        width: 496px;
+    }
+
+    header .banner-down-container {
+        margin-bottom: 26px;
+    }
+
+    header .banner-down-container .more-navEntrance {
+        width: 234px;
+        height: 170px;
+        padding: 3px 3px 0;
+        box-sizing: border-box;
+        background-color: #5f5750;
+    }
+
+    header .banner-down-container .more-navEntrance ul li {
+        width: 76px;
+        height: 81px;
+        float: left;
+        position: relative;
+    }
+
+    header .banner-down-container .more-navEntrance ul li::before,
+    header .banner-down-container .more-navEntrance ul li::after {
+        content: "";
+        width: 70px;
+        height: 1px;
+        background-color: #665e57;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -35px;
+    }
+
+
+    header .banner-down-container .more-navEntrance ul li::after {
+        transform: rotate(90deg);
+        left: 0;
+        top: 50%;
+        margin-top: .5px;
+    }
+
+    header .banner-down-container .more-navEntrance ul li a {
+        padding-top: 20px;
+        display: block;
+        opacity: .7;
+        text-align: center;
+        transition: opacity .2s linear 0s;
+    }
+
+    header .banner-down-container .more-navEntrance ul li a img {
+        width: 22px;
+        height: 22px;
+        display: block;
+        margin: 0 auto 6px;
+    }
+
+    header .banner-down-container .more-navEntrance ul li a span {
+        color: #fff;
+        font-size: 12px;
+    }
+
+    header .banner-down-container .more-navEntrance ul li a:hover {
+        opacity: 1;
+    }
+
+    header .banner-down-container .banner-down-shallBanner {
+        margin-left: 14px;
+        width: 978px;
+        height: 170px;
+    }
+
+    header .banner-down-container .banner-down-shallBanner ul li {
+        float: left;
+        width: 316px;
+        height: 170px;
+        margin-left: 15px;
+        transition: box-shadow .2s linear 0s;
+    }
+
+    header .banner-down-container .banner-down-shallBanner ul li:first-child {
+        margin-left: 0;
+    }
+
+    header .banner-down-container .banner-down-shallBanner ul li a,
+    header .banner-down-container .banner-down-shallBanner ul li a img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    header .banner-down-container .banner-down-shallBanner ul li:hover {
+        box-shadow: 0px 10px 20px 3px #e0e0e0;
+    }
+
+
+    /* header end  */
+
+    /* main start */
+    main {
+        background-color: #f5f5f5;
+    }
+
+    main .main-comCol-container .main-comCol-banner {
+        width: 100%;
+        height: 120px;
+        padding: 22px 0;
+    }
+
+    main .main-comCol-container .main-comCol-banner img {
+        display: block;
+        height: 100%;
+    }
+
+    main .main-comCol-container .main-comCol-tables {
+        margin-bottom: 20px;
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh {
+        position: relative;
+        height: 58px;
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh h2 {
+        font-size: 22px;
+        line-height: 58px;
+        font-weight: 100;
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more a i.moreArrow {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        position: relative;
+        top: 3px;
+        margin-left: 3px;
+        background-color: #b0b0b0;
+        transition: all .3s linear 0s;
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more span {
+        font-size: 16px;
+        line-height: 58px;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more a i.moreArrow::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        top: 5px;
+        left: 4px;
+        border: 2px solid #fff;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        transform: rotate(45deg);
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more>a:hover {
+        color: var(--public-color-2);
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more a:hover i.moreArrow {
+        background-color: var(--public-color-2);
+    }
+
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comCol-tables-mainShop a {
+        display: block;
+        transition: all .3s linear 0s;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comCol-tables-mainShop,
+    .main-comCol-container .main-comCol-tables .comCol-bd .comCol-tables-mainShop a {
+        width: 234px;
+        height: 614px;
+    }
+
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comCol-tables-mainShop a img {
+        width: 234px;
+        height: 614px;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comColSecond,
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more .comColSecond {
+        width: 992px;
+        height: 614px;
+        /* 取巧，使用背景色覆盖底层元素  */
+        background-color: #f5f5f5;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comColSecond ul li,
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li {
+        float: left;
+        width: 234px;
+        height: 300px;
+        margin-left: 14px;
+        margin-bottom: 14px;
+        text-align: center;
+        background-color: #fff;
+        transition: all .2s linear 0s;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comColSecond ul li a,
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 20px 0;
+        box-sizing: border-box;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .comColSecond ul li .comImages,
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li .comImages {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto 18px;
+    }
+
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li .comImages img,
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li .comImages img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li h3,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li h3 {
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0 10px 2px;
+    }
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li p.desc,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li p.desc,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li p.desc,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li p.desc {
+        color: #b0b0b0;
+        font-size: 12px;
+        margin: 0 15px 10px;
+    }
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li p.price,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li p.price {
+        color: var(--public-color-2);
+    }
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li p.price del,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li p.price del {
+        margin-left: 5px;
+        color: #b0b0b0;
+    }
+
+    .main-comCol-tables .comCol-bd .comColSecond ul li:hover,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li:hover,
+    .main-comCol-container .main-comCol-tables .comCol-bd .comCol-tables-mainShop a:hover,
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, .1);
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul {
+        width: 992px;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li {
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li span {
+        position: relative;
+        transition: width .3s linear 0s;
+        cursor: pointer;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li:hover span {
+        color: var(--public-color-2);
+
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li span.comColActive {
+        color: var(--public-color-2);
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li .comColSecond {
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li span::before,
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more span.onlySpan::before {
+        content: "";
+        display: block;
+        width: 0%;
+        height: 2px;
+        position: absolute;
+        bottom: -5px;
+        background-color: var(--public-color-2);
+        transition: width .3s linear 0s;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li:last-child span::before {
+        width: 100%;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li:hover span::before {
+        width: 100%;
+    }
+
+    /* 使用定位的层级关系实现元素之间切换  */
+    .main-comCol-tables .comCol-bh .comCol-more ul li:nth-child(1):hover>.comColSecond {
+        z-index: 2;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li:nth-child(2):hover>.comColSecond {
+        z-index: 3;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more ul li:nth-child(3):hover>.comColSecond {
+        z-index: 4;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container:hover {
+        /* 减少一些工序，去除鼠标悬浮的样式  */
+        transform: translateY(0);
+        box-shadow: none;
+    }
+
+    main .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container {
+        background-color: transparent;
+        padding-left: 0;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div {
+        width: 234px;
+        height: 143px;
+        padding-top: 30px;
+        box-sizing: border-box;
+        margin-bottom: 14px;
+        text-align: left;
+        background-color: #fff;
+        transition: all .3s linear 0s;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-smallComCol {
+        padding-top: 50px;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div a {
+        display: block;
+        width: 100%;
+        height: 143px;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a {
+        background: url("../images/small-monitor.webp") 134px top no-repeat;
+        background-size: 80px 80px;
+    }
+
+    /* 层叠不同商品的图片 */
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.washingSmallCol {
+        background-image: url("../images/washing-machine-3.webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.smallFanCol {
+        background-image: url("../images/fanImgs-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.vacuum-cleanerSmallCol {
+        background-image: url("../images/vacuum-cleaner-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.empty-netSmallCol {
+        background-image: url("../images/empty-net-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.sweeping-robotSmallCol {
+        background-image: url("../images/vacuum-cleaner(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.water-purifierSmallCol {
+        background-image: url("../images/water-purifier-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.smoke-stoveSmallCol {
+        background-image: url("../images/smoke-stove-8.webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.XiaoAi-audioSmallCol {
+        background-image: url("../images/XiaoAi-audio-8.webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.RouterSmallCol {
+        background-image: url("../images/Router-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.Smooth-and-ScooterSmallCol {
+        background-image: url("../images/Smooth-and-Scooter-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.healthShopSmallCol {
+        background-image: url("../images/healthShop-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.luggage-and-bagsSmallCol {
+        background-image: url("../images/luggage-and-bags-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.means-of-travelSmallCol {
+        background-image: url("../images/means-of-travel-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.Personal-healthSmallCol {
+        background-image: url("../images/Personal-health-care-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.HouseholdGoods-SmallCol {
+        background-image: url("../images/HouseholdGoods-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav a.powerSupplySmallCol {
+        background-image: url("../images/powerSupply-wire-8(small).webp");
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-more-hotNav h4 {
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-smallComCol cite {
+        font-size: 18px;
+        font-style: normal;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-smallComCol p {
+        margin-left: 0;
+    }
+
+    .main-comCol-tables .comCol-bh .comCol-more .comColSecond ul li.browse-more-container div.browse-smallComCol a {
+        background: url("../images/turnRight.png") 156px top no-repeat;
+        background-size: 48px 48px;
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more span.onlySpan {
+        color: var(--public-color-2);
+    }
+
+    main .main-comCol-container .main-comCol-tables .comCol-bh .comCol-more span.onlySpan::before {
+        bottom: 15px;
+        width: 100%;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .doubleMainShop {
+        overflow: hidden;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .doubleMainShop a {
+        width: 234px;
+        height: 300px;
+        margin-bottom: 14px;
+    }
+
+    .main-comCol-container .main-comCol-tables .comCol-bd .doubleMainShop a img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    main .main-comCol-container .videos-container {
+        margin-bottom: 0;
+        padding-bottom: 26px;
+    }
+
+    main .main-comCol-container .videos-container .videos-box {
+        width: 100%;
+    }
+
+    main .main-comCol-container .videos-container .videos-box li {
+        float: left;
+        width: 296px;
+        height: 285px;
+        text-align: center;
+        margin-left: 14px;
+        background-color: #fff;
+        transition: all .2s linear 0s;
+    }
+
+    main .main-comCol-container .videos-container .videos-box li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, .1);
+    }
+
+    .main-comCol-container .videos-container .videos-box li:first-child {
+        margin-left: 0;
+    }
+
+    .main-comCol-container .videos-container .videos-box li .videoCover-list {
+        position: relative;
+        width: 296px;
+        height: 180px;
+        margin-bottom: 28px;
+    }
+
+    .main-comCol-container .videos-container .videos-box li a img {
+        width: 296px;
+        height: 180px;
+    }
+
+    .main-comCol-container .videos-container .videos-box li .videoCover-list span.play {
+        width: 32px;
+        height: 20px;
+        border: 2px solid #fff;
+        border-radius: 12px;
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        background: url("../images/triangleIcon.png") center no-repeat;
+        background-size: 12px 12px;
+        /* 过渡  */
+        transition: all .2s linear 0s;
+    }
+
+    .main-comCol-container .videos-container .videos-box li .videoCover-list:hover span.play {
+        /* 鼠标悬浮应用样式 */
+        border-color: var(--public-color-2);
+        background-color: var(--public-color-2);
+    }
+
+    .main-comCol-container .videos-container .videos-box li p.videoTitle {
+        margin: 0 14px 6px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #333;
+    }
+
+    .main-comCol-container .videos-container .videos-box li p.videoDesc {
+        height: 18px;
+        margin: 0 14px;
+        font-size: 12px;
+        color: #b0b0b0;
+    }
+
+
+    /* main end */
+    /* footer start */
+    footer {
+        background-color: #fff;
+    }
+
+    footer .footer-headService {
+        padding: 27px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    footer .footer-headService .service-container li {
+        float: left;
+        width: 20%;
+    }
+
+    footer .footer-headService .service-container li a {
+        color: #616161;
+        font-size: 16px;
+        text-align: center;
+        display: block;
+        background: url("../images/repairIcon-before.png") 45px center no-repeat;
+        background-size: 24px 25px;
+        border-right: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        transition: all .2s linear 0s;
+    }
+
+    footer .footer-headService .service-container li:last-child a {
+        border-right: none;
+    }
+
+    footer .footer-headService .service-container li a:hover {
+        background-image: url("../images/repairIcon-after.png");
+    }
+
+
+    footer .footer-headService .service-container li a:hover {
+        color: var(--public-color-2);
+    }
+
+    footer .footer-headService .service-container li:nth-child(2) a {
+        background-image: url("../images/sevenDay-before.png");
+        background-position-X: 40px;
+    }
+
+    footer .footer-headService .service-container li:nth-child(2) a:hover {
+        background-image: url("../images/sevenDay-after.png");
+    }
+
+
+    footer .footer-headService .service-container li:nth-child(3) a {
+        background-image: url("../images/fifteenDay-before.png");
+        background-position-X: 50px;
+    }
+
+    footer .footer-headService .service-container li:nth-child(3) a:hover {
+        background-image: url("../images/fifteenDay-after.png");
+    }
+
+    footer .footer-headService .service-container li:nth-child(4) a {
+        background-image: url("../images/giftBox-before.png");
+        background-position-X: 55px;
+    }
+
+    footer .footer-headService .service-container li:nth-child(4) a:hover {
+        background-image: url("../images/giftBox-after.png");
+    }
+
+    footer .footer-headService .service-container li:nth-child(5) a {
+        background-image: url("../images/city-before.png");
+        background-position-X: 30px;
+    }
+
+    footer .footer-headService .service-container li:nth-child(5) a:hover {
+        background-image: url("../images/city-after.png");
+    }
+
+    footer .footer-links {
+        padding: 40px 0;
+    }
+
+    footer .footer-links ol {
+        width: 160px;
+    }
+
+    footer .footer-links ol li {
+        margin-top: 6px;
+    }
+
+    footer .footer-links ol li[name="title"] {
+        margin-bottom: 26px;
+        margin-top: 0;
+    }
+
+    footer .footer-links ol li[name="title"] span {
+        color: #424242;
+        font-size: 14px;
+    }
+
+    footer .footer-links ol li a {
+        color: #757575;
+        font-size: 12px;
+    }
+
+    footer .footer-links ol li a:hover {
+        color: var(--public-color-2);
+    }
+
+    footer .footer-links .person-service {
+        width: 251px;
+        text-align: center;
+        border-left: 1px solid #e0e0e0;
+    }
+
+    footer .footer-links .person-service p.phoneNumber {
+        color: var(--public-color-2);
+        font-size: 22px;
+    }
+
+    footer .footer-links .person-service p.serviceTime {
+        color: #616161;
+        font-size: 12px;
+        margin: 5px 0;
+    }
+
+    footer .footer-links .person-service a {
+        /* 行内元素没有宽高，转块  */
+        display: block;
+        color: var(--public-color-2);
+        width: 118px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 12px;
+        border: 1px solid var(--public-color-2);
+        margin: 0 auto;
+        background: url("../images/message-before.png") 20px center no-repeat;
+        background-size: 12px 12px;
+        transition: all .2s;
+    }
+
+    footer .footer-links .person-service a:hover {
+        color: #fff;
+        background-color: #f25807;
+        border-color: #f25807;
+        background-image: url("../images/message-after.png");
+    }
+
+    footer .site-information {
+        padding: 30px;
+        background-color: #fafafa;
+    }
+
+    footer .site-information .container {
+        position: relative;
+    }
+
+    footer .mi-footer-Logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 56px;
+        height: 56px;
+        background: url("../images/logo-mi2.png") center/cover no-repeat;
+        text-align: left;
+        text-indent: -9999em;
+        overflow: hidden;
+    }
+
+    footer .site-footSmallNav {
+        padding-left: 77px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    footer .site-footSmallNav ul li {
+        padding: 0 5px;
+        float: left;
+        position: relative;
+    }
+
+    footer .site-footSmallNav ul li::after {
+        content: "";
+        width: 1px;
+        height: 10px;
+        background-color: #b0b0b0;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -5px;
+    }
+
+    footer .site-footSmallNav ul li:last-child::after {
+        display: none;
+    }
+
+    footer .site-footSmallNav ul li a {
+        color: #757575;
+        font-size: 12px;
+    }
+
+    footer .site-footSmallNav a:hover {
+        color: var(--public-color-2);
+    }
+
+    footer .site-footSmallNav p,
+    footer .site-footSmallNav p a {
+        color: #b0b0b0;
+        font-size: 12px;
+    }
+
+    footer .site-footLinks {
+        height: 28px;
+        padding-left: 77px;
+        margin: 4px 0 15px;
+    }
+
+    footer .site-footLinks a {
+        float: left;
+        margin-right: 5px;
+        width: 85px;
+        height: 28px;
+    }
+
+    footer .site-footLinks a img {
+        width: 85px;
+        height: 28px;
+    }
+
+    /* 使用动画实现背景图的一个切换，定义动画 */
+    @keyframes footLinksShow {
+        0% {
+            background-image: url("../images/footIcon-5_1.png");
+        }
+
+        50% {
+            background-image: url("../images/footIcon-5_2.png");
+        }
+
+        100% {
+            background-image: url("../images/footIcon-5_1.png");
+        }
+    }
+
+    footer .site-footLinks a:last-child {
+        background: url("../images/footIcon-5_1.png") center/cover no-repeat;
+        /* 动画名称  */
+        animation-name: footLinksShow;
+        /* 延迟时间  */
+        animation-delay: 0s;
+        /* 运行时间 */
+        animation-duration: 5s;
+        /* 动画运行状态  */
+        animation-timing-function: ease-in-out;
+        /* 循环  */
+        animation-iteration-count: infinite;
+    }
+
+    footer .site-information .page-end-text {
+        width: 100%;
+        height: 19px;
+        margin: 30px auto 0;
+        background: url("../images/footText.png") center 0 no-repeat;
+        text-align: left;
+        overflow: hidden;
+        text-indent: -9999em;
+    }
+
+    /* footer end */
+
+    /* side start  */
+    .side-container {
+        position: fixed;
+        bottom: 70px;
+        right: 0;
+        z-index: 99;
+    }
+
+    .side-container ul {
+        width: 84px;
+    }
+
+    .side-container ul li {
+        width: 100%;
+        height: 92px;
+        padding-top: 20px;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #f5f5f5;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .side-container ul li .phoneApp-codeBox {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        margin-right: 10px;
+        background-color: #fff;
+        border: 1px solid #f5f5f5;
+        padding: 14px;
+        display: none;
+    }
+
+    .side-container ul li .phoneApp-codeBox::before {
+        content: "";
+        position: absolute;
+        border: 10px solid red;
+        border-color: transparent transparent transparent white;
+        left: 100%;
+        top: 46px;
+    }
+
+    .side-container ul li:hover .phoneApp-codeBox {
+        display: block;
+    }
+
+    .side-container ul li .phoneApp-codeBox img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 14px;
+    }
+
+    .side-container ul li .phoneApp-codeBox span {
+        color: #757575;
+        font-size: 14px;
+    }
+
+    .side-container ul li a {
+        display: block;
+        color: #757575;
+        width: 100%;
+        height: 100%;
+        padding-top: 47%;
+        box-sizing: border-box;
+        background: url("../images/phoneApp-before.png") center 0 no-repeat;
+        background-size: 30px 30px;
+        transition: all .2s;
+    }
+
+    .side-container ul li:last-child {
+        margin-top: 14px;
+    }
+
+    .side-container ul li a:hover {
+        color: var(--public-color-2);
+        background-image: url("../images/phoneApp-after.png");
+    }
+
+    .side-container ul li:nth-child(2) a {
+        background-image: url("../images/onlyPerson-before.png");
+    }
+
+    .side-container ul li:nth-child(2) a:hover {
+        background-image: url("../images/onlyPerson-after.png");
+    }
+
+    .side-container ul li:nth-child(3) a {
+        background-image: url("../images/repairIcon-before.png");
+    }
+
+    .side-container ul li:nth-child(3) a:hover {
+        background-image: url("../images/repairIcon-after.png");
+    }
+
+    .side-container ul li:nth-child(4) a {
+        background-image: url("../images/personService-before.png");
+    }
+
+    .side-container ul li:nth-child(4) a:hover {
+        background-image: url("../images/personService-after.png");
+    }
+
+    .side-container ul li:nth-child(5) a {
+        background-image: url("../images/side-shopCar-before.png");
+    }
+
+    .side-container ul li:nth-child(5) a:hover {
+        background-image: url("../images/side-shopCar-after.png");
+    }
+
+    .side-container ul li:nth-child(6) a {
+        background-image: url("../images/returnTop-before.png");
+    }
+
+    .side-container ul li:nth-child(6) a:hover {
+        background-image: url("../images/returnTop-after.png");
+    }
+
+    /* side end */
+
+    /* 
+        time：2022-10-26 05:43
+        miPage Project over！    
+    */
